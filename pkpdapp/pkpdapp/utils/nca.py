@@ -124,7 +124,7 @@ class NCA():
             area2 = NCA.log_trapz(y[ymax_indx:], x[ymax_indx:])
             area = area1 + area2
         else:  # use linear trapezoid only
-            area = np.trapz(x, y)
+            area = np.trapz(y, x)
         return area
 
     def _auc_0_last(self, linlog=True):
@@ -273,7 +273,7 @@ class NCA():
         under terminal rate constant)
         :return: {float} -- terminal half life
         """
-        return np.log(2) / self.tlast
+        return np.log(2) / self.lambda_z
 
     def _V_ss(self):
         """
